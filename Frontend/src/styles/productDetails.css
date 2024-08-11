@@ -1,0 +1,172 @@
+/* Product Details */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.product-details {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background: #fff;
+  overflow: hidden;
+}
+
+.product-carousel {
+  width: 100%;
+  max-width: 500px;
+  position: relative;
+}
+
+.product-carousel img {
+  width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+}
+
+.product-carousel img:hover {
+  transform: scale(1.05);
+}
+
+.product-info {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.product-info h2 {
+  margin-top: 0;
+  font-size: 2rem;
+  color: #333;
+}
+
+.product-info .price {
+  font-size: 1.5rem;
+  color: #ff6f61;
+}
+
+.product-info .category {
+  font-size: 1rem;
+  color: #555;
+}
+
+.product-info p {
+  margin: 10px 0;
+  font-size: 1rem;
+  color: #555;
+}
+
+.product-info .book-now {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background: linear-gradient(90deg, #ff6f61, #ff5a4d);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.product-info .book-now:hover {
+  background: linear-gradient(90deg, #ff5a4d, #ff6f61);
+  transform: scale(1.05);
+}
+
+.product-info .book-now.booked {
+  background: #d3d3d3;
+  cursor: not-allowed;
+}
+
+.product-info .book-now:disabled {
+  background: #d3d3d3;
+  cursor: not-allowed;
+}
+
+/* Booking Modal */
+.booking-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  width: 90%;
+  max-width: 400px;
+}
+
+.booking-modal h2 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 1.5rem;
+  color: #333;
+}
+
+.booking-modal label {
+  display: block;
+  margin-bottom: 5px;
+  font-size: 1rem;
+}
+
+.booking-modal input {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.booking-modal input.error {
+  border-color: #e74c3c;
+}
+
+.error-text {
+  color: #e74c3c;
+  font-size: 0.875rem;
+  margin: -10px 0 10px;
+}
+
+.modal-buttons {
+  display: flex;
+  justify-content: space-between;
+}
+
+.modal-buttons button {
+  padding: 12px 24px;
+  font-size: 1rem;
+  background: linear-gradient(90deg, #ff6f61, #ff5a4d);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.modal-buttons button:hover {
+  background: linear-gradient(90deg, #ff5a4d, #ff6f61);
+  transform: scale(1.05);
+}
+
+.cancel-button {
+  background: #ddd;
+  color: #333;
+}
+
+.cancel-button:hover {
+  background: #ccc;
+}
+
+/* Loading and Error States */
+.loading,
+.error {
+  text-align: center;
+  font-size: 1.5rem;
+  color: #555;
+}
