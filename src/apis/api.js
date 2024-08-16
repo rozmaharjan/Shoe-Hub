@@ -3,7 +3,7 @@ import axios from "axios";
 
 // Creating Axios instance
 const Api = axios.create({
-    baseURL: "http://localhost:5500",
+    baseURL: "https://shoe-hub-backend.onrender.com",
     withCredentials: true,
 })
 
@@ -38,8 +38,8 @@ export const getAllProductsApi = () => Api.get('/api/products/get_products')
 export const getSingleProductApi = (id) => Api.get(`/api/products/get_product/${id}`)
 
 // update product
-export const updateProductApi 
-        = (id, formData) => Api.put(`/api/products/update_product/${id}`, formData, config)
+export const updateProductApi
+    = (id, formData) => Api.put(`/api/products/update_product/${id}`, formData, config)
 
 // delete product
 export const deleteProductApi = (id) => Api.delete(`/api/products/delete_product/${id}`, config)
