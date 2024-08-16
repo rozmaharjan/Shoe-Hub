@@ -1,9 +1,8 @@
-import { useEffect, useState } from "react";
-import { useParams, Link } from "react-router-dom";
 import axios from "axios";
+import { Fragment, useEffect, useState } from "react";
+import { Link, useParams } from "react-router-dom";
 import success from "../assets/images/success.png";
 import styles from "../styles/module.css";
-import { Fragment } from "react";
 
 const VerifyEmail = () => {
 	const [validUrl, setValidUrl] = useState(true);
@@ -13,7 +12,7 @@ const VerifyEmail = () => {
 		const verifyEmailUrl = async () => {
 			try {
 				// Adjusted URL to match the backend port
-				const url = `http://localhost:5500/api/user/${param.id}/verify/${param.token}`;
+				const url = `https://shoe-hub-backend.onrender.com/api/user/${param.id}/verify/${param.token}`;
 				const { data } = await axios.get(url);
 				console.log(data);
 				setValidUrl(true);

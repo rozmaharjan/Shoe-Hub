@@ -1,11 +1,11 @@
 import Alert from "@mui/material/Alert";
 import Snackbar from "@mui/material/Snackbar";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import Loading from "../components/Loading";
 import "../styles/userProfile.css";
-import { jwtDecode } from "jwt-decode";
 
 
 import {
@@ -42,32 +42,32 @@ const UserProfile = () => {
 
     const fetchUserProfile = async () => {
         try {
-          const token = localStorage.getItem('token');
-          console.log('Token:', token); // Log the token value
-      
-          if (!token) {
-            throw new Error("No token found");
-          }
-      
-          const decodedToken = jwtDecode(token);
-          console.log('Decoded token:', decodedToken); // Log the decoded token
-      
-          const userId = decodedToken._id;
-          if (!userId) {
-            throw new Error("Unable to decode token or retrieve user ID.");
-          }
-      
-          const response = await axios.get(`http://localhost:5500/api/user/profile/${userId}`, {
-            headers: { Authorization: `Bearer ${token}` },
-          });
-      
-          setUserData(response.data.userProfile);
-          setLoading(false);
+            const token = localStorage.getItem('token');
+            console.log('Token:', token); // Log the token value
+
+            if (!token) {
+                throw new Error("No token found");
+            }
+
+            const decodedToken = jwtDecode(token);
+            console.log('Decoded token:', decodedToken); // Log the decoded token
+
+            const userId = decodedToken._id;
+            if (!userId) {
+                throw new Error("Unable to decode token or retrieve user ID.");
+            }
+
+            const response = await axios.get(`https://shoe-hub-backend.onrender.com/api/user/profile/${userId}`, {
+                headers: { Authorization: `Bearer ${token}` },
+            });
+
+            setUserData(response.data.userProfile);
+            setLoading(false);
         } catch (error) {
-          console.error("Error fetching user profile:", error);
-          setLoading(false);
+            console.error("Error fetching user profile:", error);
+            setLoading(false);
         }
-      };
+    };
 
     useEffect(() => {
         fetchUserProfile();
@@ -117,7 +117,7 @@ const UserProfile = () => {
             };
 
             await axios.put(
-                `http://localhost:5500/api/user/edit/${userId}`,
+                `https://shoe-hub-backend.onrender.com/api/user/edit/${userId}`,
                 editedData,
                 config
             );
